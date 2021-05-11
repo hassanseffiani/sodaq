@@ -1,13 +1,10 @@
 import './App.css';
-import AppBar from './component/appBar'
-import Search from './component/search'
+import Init from './init'
 
 function App() {
-  // const [open , setOpen] = React.useState(false)
   return (
     <div>
-      <AppBar />
-      <Search />
+      <Init />
     </div>
   );
 }
