@@ -1,0 +1,1 @@
+npm i react-icons @material-ui/icons @material-ui/core --save
