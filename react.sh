@@ -1,1 +1,1 @@
-npm i react-icons @material-ui/icons @material-ui/core --save
+npm i material-ui-search-bar react-icons @material-ui/icons @material-ui/core --save

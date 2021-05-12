@@ -1,13 +1,16 @@
 import React from "react";
-import AppBar from "./component/appBar"
-import Search from "./component/search"
+import AppBar from "./component/appBar";
+import MiddleSection from "./component/middleSection";
+import Footer from "./component/footer"
 
 const Init = (props) => {
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = React.useState(false);
+
   return (
     <div>
-      <AppBar open={open} setOpen={setOpen} />
-      <Search open={open} setOpen={setOpen} />
+        <AppBar open={open} setOpen={setOpen} />
+        <MiddleSection />
+        <Footer />
     </div>
   );
 };

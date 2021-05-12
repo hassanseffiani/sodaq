@@ -13,9 +13,15 @@ import { FaBookReader } from "react-icons/fa";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    fontSize: "22px"
   },
   menuButton: {
-    marginRight: theme.spacing(2),
+    marginLeft: theme.spacing(2),
+    marginRight: theme.spacing(4),
+    color: "#ffffff",
+  },
+  toolbar: {
+    minHeight: 36,
   },
   title: {
     flexGrow: 1,
@@ -23,6 +29,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("sm")]: {
       display: "block",
     },
+    color: "#ffffff",
   },
   search: {
     position: "relative",
@@ -37,6 +44,7 @@ const useStyles = makeStyles((theme) => ({
       marginLeft: theme.spacing(1),
       width: "auto",
     },
+    marginRight: theme.spacing(8),
   },
   searchIcon: {
     padding: theme.spacing(0, 2),
@@ -46,6 +54,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    color: "#ffffff",
   },
   inputRoot: {
     color: "inherit",
@@ -62,21 +71,21 @@ const useStyles = makeStyles((theme) => ({
         width: "20ch",
       },
     },
+    color: "#ffffff",
   },
 }));
 
-const SearchAppBar = () => {
+const SearchAppBar = (props) => {
   const classes = useStyles();
 
   const dothis = (event) => {
     event.preventDefault();
-    console.log("e")
   }
 
   return (
     <div className={classes.root}>
       <AppBar position="static">
-        <Toolbar>
+        <Toolbar className={classes.toolbar}>
           <IconButton
             edge="start"
             className={classes.menuButton}

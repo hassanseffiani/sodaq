@@ -53,11 +53,7 @@ const DialogActions = withStyles((theme) => ({
   },
 }))(MuiDialogActions);
 
-export default function CustomizedDialogs(props) {
-
-  const handleClickOpen = () => {
-    props.setOpen(true);
-  };
+const CustomizedDialogs = (props) => {
   const handleClose = () => {
     props.setOpen(false);
   };
@@ -88,3 +84,5 @@ export default function CustomizedDialogs(props) {
     </div>
   );
 }
+
+export default CustomizedDialogs;

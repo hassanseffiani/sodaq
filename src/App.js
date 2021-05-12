@@ -3,7 +3,7 @@ import Init from './init'
 
 function App() {
   return (
-    <div>
+    <div className="App">
       <Init />
     </div>
   );
