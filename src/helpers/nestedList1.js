@@ -9,6 +9,7 @@ import {
   Box,
 } from "@material-ui/core";
 import { ExpandMore, ExpandLess } from "@material-ui/icons";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -49,7 +50,7 @@ const NestedList1 = () => {
         }
         className={classes.root}
       >
-        <ListItem button>
+        <ListItem button component={Link} to="/">
           <ListItemText primary="Start" />
         </ListItem>
         <ListItem button>
@@ -62,7 +63,7 @@ const NestedList1 = () => {
         <Collapse in={open} timeout="auto" unmountOnExit>
           <List component="div" disablePadding>
             <ListItem button className={classes.nested}>
-              <ListItemText primary="Starred" />
+              <ListItemText primary="Select your board!" />
             </ListItem>
           </List>
         </Collapse>
@@ -72,8 +73,37 @@ const NestedList1 = () => {
         </ListItem>
         <Collapse in={open1} timeout="auto" unmountOnExit>
           <List component="div" disablePadding>
-            <ListItem button className={classes.nested}>
-              <ListItemText primary="Starred" />
+            <ListItem
+              button
+              className={classes.nested}
+              component={Link}
+              to="/Sensors"
+            >
+              <ListItemText primary="All sensors" />
+            </ListItem>
+            <ListItem
+              button
+              className={classes.nested}
+              component={Link}
+              to="/Sensors/grove-fet"
+            >
+              <ListItemText primary="Grove-Fet" />
+            </ListItem>
+            <ListItem
+              button
+              className={classes.nested}
+              component={Link}
+              to="/Sensors/tph"
+            >
+              <ListItemText primary="TPH" />
+            </ListItem>
+            <ListItem
+              button
+              className={classes.nested}
+              component={Link}
+              to="/Sensors/tph_v2"
+            >
+              <ListItemText primary="TPH v2" />
             </ListItem>
           </List>
         </Collapse>

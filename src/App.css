@@ -1,3 +1,26 @@
 .App {
   font-family: sans-serif;
 }
+
+.code-snippet {
+  width: 300px;
+  background: #F5F5F5;
+  padding: 0.1rem;
+}
+
+.code-section {
+  position: relative;
+  width: 100%;
+}
+
+.code-section pre {
+  font-size: 120%;
+}
+
+.code-section span {
+  position: absolute;
+  right: 0;
+  top: 5%;
+  bottom: 0;
+  font-size: 120%;
+}
