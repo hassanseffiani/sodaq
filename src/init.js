@@ -11,12 +11,12 @@ const Init = (props) => {
   return (
     <div>
       <Router>
-        <AppBar open={open} setOpen={setOpen} />
         <CssBaseline />
-        <Container maxWidth="lg" fixed >
+        <Container maxWidth="lg" fixed>
+          <AppBar open={open} setOpen={setOpen} />
           <MiddleSection />
         </Container>
-        <Footer />
+        {/* <Footer /> */}
       </Router>
     </div>
   );

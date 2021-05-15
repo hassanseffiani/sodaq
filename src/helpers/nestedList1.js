@@ -22,8 +22,13 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: theme.spacing(4),
   },
   activeClass: {
-    color : green[500]
-  }
+    color: green[500],
+  },
+  list1: {
+    position: "sticky",
+    top: "1rem",
+    minWidth: "275",
+  },
 }));
 
 const NestedList1 = () => {
@@ -43,7 +48,7 @@ const NestedList1 = () => {
   };
 
   return (
-    <Box width="60%">
+    <Box width="60%" className={classes.list1}>
       <List
         component="nav"
         aria-labelledby="nested-list-subheader"

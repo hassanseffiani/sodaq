@@ -1,6 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Grid, Paper } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 import { Route, Switch } from "react-router-dom";
 import NestedList1 from "../helpers/nestedList1";
 import NestedList2 from "../helpers/nestedList2";
@@ -18,15 +18,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
   },
-  paper: {
-    padding: theme.spacing(2),
-  },
-  Grid: {
-    flexGrow: 1,
-    display: "flex",
-    flexDirection: "column",
-    minHeight: 0,
-  },
+  toolbar: theme.mixins.toolbar,
 }));
 
 const MiddleSection = () => {
@@ -34,53 +26,46 @@ const MiddleSection = () => {
 
   return (
     <div className={classes.root}>
-      <Paper className={classes.paper}>
-        <Grid
-          container
-          direction="row"
-          justify="space-between"
-          alignItems="center"
-          spacing={3}
-        >
-          <Grid item xs={12} sm={3}>
-            <NestedList1 />
-          </Grid>
-          <Grid item xs={12} sm={4}>
-            <Grid container>
-              <Grid item xs>
-                <Switch>
-                  <Route exact path="/">
-                    <Start />
-                  </Route>
-                  <Route exact path="/Sensors">
-                    <AllSensors />
-                  </Route>
-                  <Route path="/Sensors/grove-fet">
-                    <GroveFet />
-                  </Route>
-                  <Route path="/Sensors/tph">
-                    <Tph />
-                  </Route>
-                  <Route path="/Sensors/tph_v2">
-                    <Tphv2 />
-                  </Route>
-                  <Route exact path="/Boards">
-                    <Boards />
-                  </Route>
-                  <Route path="*">
-                    <NotFound />
-                  </Route>
-                </Switch>
-              </Grid>
-            </Grid>
-          </Grid>
-          <NotFoundHide>
-            <Grid item xs={12} sm={3}>
-              <NestedList2 />
-            </Grid>
-          </NotFoundHide>
+      <div className={classes.toolbar} />
+      <Grid container spacing={3}>
+        <Grid item xs={12} sm={3} md={2} lg={2}>
+          <NestedList1 />
         </Grid>
-      </Paper>
+        <Grid item xs={12} sm={6} md={8} lg={8}>
+          <Grid container>
+            <Grid item xs>
+              <Switch>
+                <Route exact path="/">
+                  <Start />
+                </Route>
+                <Route exact path="/Sensors">
+                  <AllSensors />
+                </Route>
+                <Route path="/Sensors/grove-fet">
+                  <GroveFet />
+                </Route>
+                <Route path="/Sensors/tph">
+                  <Tph />
+                </Route>
+                <Route path="/Sensors/tph_v2">
+                  <Tphv2 />
+                </Route>
+                <Route exact path="/Boards">
+                  <Boards />
+                </Route>
+                <Route path="*">
+                  <NotFound />
+                </Route>
+              </Switch>
+            </Grid>
+          </Grid>
+        </Grid>
+          <Grid item xs={12} sm={3} md={2} lg={2}>
+          <NotFoundHide>
+              <NestedList2 />
+          </NotFoundHide>
+          </Grid>
+      </Grid>
     </div>
   );
 };
