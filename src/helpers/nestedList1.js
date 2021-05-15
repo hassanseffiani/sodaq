@@ -62,7 +62,12 @@ const NestedList1 = () => {
         </ListItem>
         <Collapse in={open} timeout="auto" unmountOnExit>
           <List component="div" disablePadding>
-            <ListItem button className={classes.nested}>
+            <ListItem
+              button
+              className={classes.nested}
+              component={Link}
+              to="/Boards"
+            >
               <ListItemText primary="Select your board!" />
             </ListItem>
           </List>

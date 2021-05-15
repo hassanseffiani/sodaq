@@ -6,10 +6,12 @@ import NestedList1 from "../helpers/nestedList1";
 import NestedList2 from "../helpers/nestedList2";
 import Start from "./middleSection/start";
 import AllSensors from "./middleSection/sensors/allSensors";
-import GroveFet from "./middleSection/sensors/grove-fet"
+import GroveFet from "./middleSection/sensors/grove-fet";
 import Tph from "./middleSection/sensors/tph";
 import Tphv2 from "./middleSection/sensors/tphv2";
 import Boards from "./middleSection/boards/boards";
+import NotFound from "../pages/NotFound";
+import NotFoundHide from "../hooks/NotFoundHide";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -18,8 +20,6 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     padding: theme.spacing(2),
-    // margin: "auto",
-    // maxWidth: 500,
   },
 }));
 
@@ -58,11 +58,16 @@ const MiddleSection = () => {
               <Route exact path="/Boards">
                 <Boards />
               </Route>
+              <Route path="*">
+                <NotFound />
+              </Route>
             </Switch>
           </Grid>
-          <Grid item xs={3}>
-            <NestedList2 />
-          </Grid>
+          <NotFoundHide>
+            <Grid item xs={3}>
+              <NestedList2 />
+            </Grid>
+          </NotFoundHide>
         </Grid>
       </Paper>
     </div>

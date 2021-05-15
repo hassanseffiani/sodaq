@@ -12,8 +12,8 @@ const Init = (props) => {
       <AppBar open={open} setOpen={setOpen} />
       <Router>
         <MiddleSection />
+        <Footer />
       </Router>
-      <Footer />
     </div>
   );
 };
