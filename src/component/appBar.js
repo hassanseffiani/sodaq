@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   InputBase,
   AppBar,
@@ -9,11 +9,12 @@ import {
 import { fade, makeStyles } from "@material-ui/core/styles";
 import { Search as SearchIcon } from "@material-ui/icons";
 import { FaBookReader } from "react-icons/fa";
+import { Link, useLocation } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    fontSize: "22px"
+    fontSize: "22px",
   },
   menuButton: {
     marginLeft: theme.spacing(2),
@@ -73,29 +74,76 @@ const useStyles = makeStyles((theme) => ({
     },
     color: "#ffffff",
   },
+  disabledLinkCss: {
+    color: "inherit",
+    textDecoration: "none",
+  },
 }));
 
 const SearchAppBar = (props) => {
   const classes = useStyles();
+  const location = useLocation();
+  const [Title, setTitle] = useState("SODAQ Support pages");
 
   const dothis = (event) => {
     event.preventDefault();
-  }
+  };
+
+  // scroll
+  const navRef = useRef();
+  navRef.current = Title;
+  useEffect(() => {
+    const handleScroll = () => {
+      const show = window.scrollY > 50;
+      if (show) {
+        switch (location.pathname) {
+          case "/":
+            setTitle("Start");
+            break;
+          case "/Boards":
+            setTitle("Select your board!");
+            break;
+          case "/Sensors":
+            setTitle("All Sensors");
+            break;
+          case "/Sensors/grove-fet":
+            setTitle("Grove-Fet");
+            break;
+          case "/Sensors/tph":
+            setTitle("TPH");
+            break;
+          case "/Sensors/tph_v2":
+            setTitle("TPH v2");
+            break;
+          default:
+            break;
+        }
+      } else {
+        setTitle("SODAQ Support pages");
+      }
+    };
+    document.addEventListener("scroll", handleScroll);
+    return () => {
+      document.removeEventListener("scroll", handleScroll);
+    };
+  }, [location]);
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
-        <Toolbar className={classes.toolbar}>
+      <AppBar position="fixed">
+        <Toolbar className={classes.toolbar} variant="dense">
           <IconButton
             edge="start"
             className={classes.menuButton}
             color="inherit"
             aria-label="open drawer"
           >
-            <FaBookReader />
+            <Link to="/" className={classes.disabledLinkCss}>
+              <FaBookReader />
+            </Link>
           </IconButton>
           <Typography className={classes.title} variant="h6" noWrap>
-            SODAQ Support pages
+            {Title}
           </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
@@ -115,6 +163,6 @@ const SearchAppBar = (props) => {
       </AppBar>
     </div>
   );
-}
+};
 
 export default SearchAppBar;

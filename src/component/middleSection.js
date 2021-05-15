@@ -21,6 +21,12 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     padding: theme.spacing(2),
   },
+  Grid: {
+    flexGrow: 1,
+    display: "flex",
+    flexDirection: "column",
+    minHeight: 0,
+  },
 }));
 
 const MiddleSection = () => {
@@ -34,37 +40,42 @@ const MiddleSection = () => {
           direction="row"
           justify="space-between"
           alignItems="center"
+          spacing={3}
         >
-          <Grid item xs={3}>
+          <Grid item xs={12} sm={3}>
             <NestedList1 />
           </Grid>
-          <Grid item xs={4}>
-            <Switch>
-              <Route exact path="/">
-                <Start />
-              </Route>
-              <Route exact path="/Sensors">
-                <AllSensors />
-              </Route>
-              <Route path="/Sensors/grove-fet">
-                <GroveFet />
-              </Route>
-              <Route path="/Sensors/tph">
-                <Tph />
-              </Route>
-              <Route path="/Sensors/tph_v2">
-                <Tphv2 />
-              </Route>
-              <Route exact path="/Boards">
-                <Boards />
-              </Route>
-              <Route path="*">
-                <NotFound />
-              </Route>
-            </Switch>
+          <Grid item xs={12} sm={4}>
+            <Grid container>
+              <Grid item xs>
+                <Switch>
+                  <Route exact path="/">
+                    <Start />
+                  </Route>
+                  <Route exact path="/Sensors">
+                    <AllSensors />
+                  </Route>
+                  <Route path="/Sensors/grove-fet">
+                    <GroveFet />
+                  </Route>
+                  <Route path="/Sensors/tph">
+                    <Tph />
+                  </Route>
+                  <Route path="/Sensors/tph_v2">
+                    <Tphv2 />
+                  </Route>
+                  <Route exact path="/Boards">
+                    <Boards />
+                  </Route>
+                  <Route path="*">
+                    <NotFound />
+                  </Route>
+                </Switch>
+              </Grid>
+            </Grid>
           </Grid>
           <NotFoundHide>
-            <Grid item xs={3}>
+            <Grid item xs={12} sm={3}>
               <NestedList2 />
             </Grid>
           </NotFoundHide>

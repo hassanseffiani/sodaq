@@ -9,7 +9,8 @@ import {
   Box,
 } from "@material-ui/core";
 import { ExpandMore, ExpandLess } from "@material-ui/icons";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import { green } from "@material-ui/core/colors";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,6 +21,9 @@ const useStyles = makeStyles((theme) => ({
   nested: {
     paddingLeft: theme.spacing(4),
   },
+  activeClass: {
+    color : green[500]
+  }
 }));
 
 const NestedList1 = () => {
@@ -50,7 +54,13 @@ const NestedList1 = () => {
         }
         className={classes.root}
       >
-        <ListItem button component={Link} to="/">
+        <ListItem
+          button
+          component={NavLink}
+          activeClassName={classes.activeClass}
+          to="/"
+          exact
+        >
           <ListItemText primary="Start" />
         </ListItem>
         <ListItem button>
@@ -65,7 +75,8 @@ const NestedList1 = () => {
             <ListItem
               button
               className={classes.nested}
-              component={Link}
+              component={NavLink}
+              activeClassName={classes.activeClass}
               to="/Boards"
             >
               <ListItemText primary="Select your board!" />
@@ -81,15 +92,18 @@ const NestedList1 = () => {
             <ListItem
               button
               className={classes.nested}
-              component={Link}
+              component={NavLink}
+              activeClassName={classes.activeClass}
               to="/Sensors"
+              exact
             >
               <ListItemText primary="All sensors" />
             </ListItem>
             <ListItem
               button
               className={classes.nested}
-              component={Link}
+              component={NavLink}
+              activeClassName={classes.activeClass}
               to="/Sensors/grove-fet"
             >
               <ListItemText primary="Grove-Fet" />
@@ -97,7 +111,8 @@ const NestedList1 = () => {
             <ListItem
               button
               className={classes.nested}
-              component={Link}
+              component={NavLink}
+              activeClassName={classes.activeClass}
               to="/Sensors/tph"
             >
               <ListItemText primary="TPH" />
@@ -105,7 +120,8 @@ const NestedList1 = () => {
             <ListItem
               button
               className={classes.nested}
-              component={Link}
+              component={NavLink}
+              activeClassName={classes.activeClass}
               to="/Sensors/tph_v2"
             >
               <ListItemText primary="TPH v2" />

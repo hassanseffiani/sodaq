@@ -1,21 +1,15 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import {
-  // ListItemText,
-  // ListItem,
-  Box,
-  ListSubheader,
-  List,
+  // Box,
 } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    width: "100%",
-    maxWidth: 360,
-    backgroundColor: theme.palette.background.paper,
-  },
-  nested: {
-    paddingLeft: theme.spacing(4),
+  navbar: {
+    position: "sticky",
+    top: "1rem",
+    minWidth: "275",
+    overflow: "auto",
   },
 }));
 
@@ -23,22 +17,11 @@ const NestedList1 = () => {
   const classes = useStyles();
 
   return (
-    <Box width="60%">
-      <List
-        component="nav"
-        aria-labelledby="nested-list-subheader"
-        subheader={
-          <ListSubheader component="div" id="nested-list-subheader">
-            Table of contents
-          </ListSubheader>
-        }
-        className={classes.root}
-      >
-        {/* <ListItem button>
-          <ListItemText primary="Sent mail" />
-        </ListItem> */}
-      </List>
-    </Box>
+    // <Box width="60%">
+      <nav aria-label="Table of contents" className={classes.navbar}>
+        Hello world!
+      </nav>
+    // </Box>
   );
 };
 
