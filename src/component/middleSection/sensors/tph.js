@@ -3,6 +3,7 @@ import { Card, CardMedia } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { MdContentCopy } from "react-icons/md";
+import { Element } from "react-scroll";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -84,7 +85,9 @@ String takeTPHReading()
         easy Grove-header. Pull-up resistors are available on the TPH-board, but
         if undesired you can disconnect them through the cut-trace on the back.
       </p>
-      <h2>TPH-board specifications:</h2>
+      <Element name="item-1">
+        <h2>TPH-board specifications:</h2>
+      </Element>
       <ul>
         <li>Size: 26 * 19 mm</li>
         <li>3 volt compatible</li>
@@ -95,14 +98,18 @@ String takeTPHReading()
         <li>Operating temp: range (-40 -> +85 )degrees Celcius</li>
         <li>I2C pull-up resistors with cut-trace</li>
       </ul>
-      <h2>Example</h2>
+      <Element name="item-2">
+        <h2>Example</h2>
+      </Element>
       <p>
         Below we included some sample code that can be applied best in use with
         our boards such as the Autonomo, Mbili or the Tatu. With this sketch you
         are able to create string of data from the temperature, humidity and
         pressure sensors on the board.
       </p>
-      <h1>Autonomo Wiring</h1>
+      <Element name="item-3">
+        <h1>Autonomo Wiring</h1>
+      </Element>
       <Card className={classes.root}>
         <CardMedia
           className={classes.media}
@@ -110,7 +117,9 @@ String takeTPHReading()
           title="autonomo_tph"
         />
       </Card>
-      <h2>Code</h2>
+      <Element name="item-4">
+        <h2>Code</h2>
+      </Element>
       <div className="code-snippet">
         <div className="code-section">
           <pre>{codeSnippet}</pre>

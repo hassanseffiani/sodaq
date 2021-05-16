@@ -2,6 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { CardMedia, Card } from "@material-ui/core";
 import { Link } from "react-router-dom";
+import { Element } from "react-scroll";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,7 +20,9 @@ const Boards = (props) => {
   return (
     <div>
       {props.hide !== true && <h1>Select your board!</h1>}
-      <h2>NB-IoT</h2>
+      <Element name="item-1">
+        <h2>NB-IoT</h2>
+      </Element>
       <Card className={classes.root}>
         <Link to="/Sensors/tph">
           <CardMedia
@@ -40,6 +43,131 @@ const Boards = (props) => {
             className={classes.media}
             image="http://localhost:8080/boards/AFF R410.jpg"
             title="AFF R410"
+          />
+        </Link>
+        <Link to="/Sensors/tph">
+          <CardMedia
+            className={classes.media}
+            image="http://localhost:8080/boards/SFF R410.jpg"
+            title="SFF R410"
+          />
+        </Link>
+        <Link to="/Sensors/tph">
+          <CardMedia
+            className={classes.media}
+            image="http://localhost:8080/boards/AFF R412.jpg"
+            title="AFF R412"
+          />
+        </Link>
+        <Link to="/Sensors/tph">
+          <CardMedia
+            className={classes.media}
+            image="http://localhost:8080/boards/SFF R412.jpg"
+            title="SFF R412"
+          />
+        </Link>
+      </Card>
+      <Element name="item-2">
+        <h2>LTE-M</h2>
+      </Element>
+      <Card className={classes.root}>
+        <Link to="/Sensors/tph">
+          <CardMedia
+            className={classes.media}
+            image="http://localhost:8080/boards/AFF R410.jpg"
+            title="AFF R410"
+          />
+        </Link>
+        <Link to="/Sensors/tph">
+          <CardMedia
+            className={classes.media}
+            image="http://localhost:8080/boards/SFF R410.jpg"
+            title="SFF R410"
+          />
+        </Link>
+        <Link to="/Sensors/tph">
+          <CardMedia
+            className={classes.media}
+            image="http://localhost:8080/boards/AFF R412.jpg"
+            title="AFF R412"
+          />
+        </Link>
+        <Link to="/Sensors/tph">
+          <CardMedia
+            className={classes.media}
+            image="http://localhost:8080/boards/SFF R412.jpg"
+            title="SFF R412"
+          />
+        </Link>
+      </Card>
+      <Element name="item-3">
+        <h2>LoRa</h2>
+      </Element>
+      <Card className={classes.root}>
+        <Link to="/Sensors/tph">
+          <CardMedia
+            className={classes.media}
+            image="http://localhost:8080/boards/Explorer.jpg"
+            title="Explorer"
+          />
+        </Link>
+        <Link to="/Sensors/tph">
+          <CardMedia
+            className={classes.media}
+            image="http://localhost:8080/boards/ONE.jpg"
+            title="ONE"
+          />
+        </Link>
+      </Card>
+      <Element name="item-4">
+        <h2>2G</h2>
+      </Element>
+      <Card className={classes.root}>
+        <Link to="/Sensors/tph">
+          <CardMedia
+            className={classes.media}
+            image="http://localhost:8080/boards/2G ONE.jpg"
+            title="2G ONE"
+          />
+        </Link>
+        <Link to="/Sensors/tph">
+          <CardMedia
+            className={classes.media}
+            image="http://localhost:8080/boards/AFF R412.jpg"
+            title="AFF R412"
+          />
+        </Link>
+        <Link to="/Sensors/tph">
+          <CardMedia
+            className={classes.media}
+            image="http://localhost:8080/boards/SFF R412.jpg"
+            title="SFF R412"
+          />
+        </Link>
+      </Card>
+      <Element name="item-5">
+      <h2>Other</h2>
+      </Element>
+      <Card className={classes.root}>
+        <Link to="/Sensors/tph">
+          <CardMedia
+            className={classes.media}
+            image="http://localhost:8080/boards/AUTONOMO.jpg"
+            title="AUTONOMO"
+          />
+        </Link>
+        <Link to="/Sensors/tph">
+          <CardMedia
+            className={classes.media}
+            image="http://localhost:8080/boards/MBILI.jpg"
+            title="MBILI"
+          />
+        </Link>
+        <Link to="/Sensors/tph">
+          <CardMedia
+            className={classes.media}
+            image="http://localhost:8080/boards/MOJA.jpg"
+            title="MOJA"
           />
         </Link>
       </Card>

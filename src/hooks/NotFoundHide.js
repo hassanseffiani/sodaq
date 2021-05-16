@@ -20,7 +20,7 @@ const NotFoundHide = (props) => {
   useEffect(() => {
     const check = [
       "/",
-      "/Sensors",
+      "/getting_started",
       "/Boards",
       "/Sensors/grove-fet",
       "/Sensors/tph",
@@ -34,11 +34,13 @@ const NotFoundHide = (props) => {
       check[4] !== match.pathname &&
       check[5] !== match.pathname
     ) {
+      console.log("hide");
       setmatchBool(false);
-    }
+    }else
+      setmatchBool(true);
   }, [match]);
   return (
-    <Box width="60%" className={classes.list2}>
+    <Box className={classes.list2}>
       <Collapse in={matchBool}>{props.children}</Collapse>
     </Box>
   );

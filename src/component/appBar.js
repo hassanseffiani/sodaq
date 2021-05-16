@@ -5,11 +5,14 @@ import {
   Toolbar,
   IconButton,
   Typography,
+  Collapse,
+  TextField,
 } from "@material-ui/core";
+import { Autocomplete } from "@material-ui/lab";
 import { fade, makeStyles } from "@material-ui/core/styles";
 import { Search as SearchIcon } from "@material-ui/icons";
 import { FaBookReader } from "react-icons/fa";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -83,11 +86,15 @@ const useStyles = makeStyles((theme) => ({
 const SearchAppBar = (props) => {
   const classes = useStyles();
   const location = useLocation();
+  const history = useHistory();
   const [Title, setTitle] = useState("SODAQ Support pages");
+  const [AutoComplet, setAutoComplet] = useState(false);
 
-  const dothis = (event) => {
-    event.preventDefault();
-  };
+  const Option = [
+    { id: 1, title: "Getting Started" },
+    { id: 2, title: "Select your sensor" },
+    { id: 3, title: "test the seciond array" },
+  ];
 
   // scroll
   const navRef = useRef();
@@ -99,6 +106,9 @@ const SearchAppBar = (props) => {
         switch (location.pathname) {
           case "/":
             setTitle("Start");
+            break;
+          case "/getting_started":
+            setTitle("Getting Started");
             break;
           case "/Boards":
             setTitle("Select your board!");
@@ -128,6 +138,24 @@ const SearchAppBar = (props) => {
     };
   }, [location]);
 
+  const redirectTo = (event, value) => {
+    switch (value.title) {
+      case "Getting Started":
+        history.push({
+          pathname: "/getting_started",
+        });
+        break;
+      case "Select your sensor":
+        history.push({
+          pathname: "/Sensors",
+        });
+        break;
+
+      default:
+        break;
+    }
+  }
+
   return (
     <div className={classes.root}>
       <AppBar position="fixed">
@@ -156,8 +184,20 @@ const SearchAppBar = (props) => {
                 input: classes.inputInput,
               }}
               inputProps={{ "aria-label": "search" }}
-              onClick={(event) => dothis(event)}
+              onClick={() => setAutoComplet(true)}
             />
+            <Collapse in={AutoComplet}>
+              <Autocomplete
+                id="combo-box-demo"
+                options={Option}
+                getOptionLabel={(option) => option.title}
+                style={{ width: 300 }}
+                renderInput={(params) => (
+                  <TextField {...params} label="Combo box" variant="outlined" />
+                )}
+                onChange={(event, value) => redirectTo(event, value)} // prints the selected value
+              />
+            </Collapse>
           </div>
         </Toolbar>
       </AppBar>

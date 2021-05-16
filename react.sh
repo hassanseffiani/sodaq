@@ -1,1 +1,1 @@
-npm i react-copy-to-clipboard react-router-dom material-ui-search-bar react-icons @material-ui/icons @material-ui/core --save
+npm i react-window @material-ui/lab axios react-scrolling-nav react-copy-to-clipboard react-router-dom material-ui-search-bar react-icons @material-ui/icons @material-ui/core --save

@@ -3,7 +3,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const path = require("path");
-// const blogRoutes = require("./routes/blogs");
+const linkRoutes = require("./routes/links");
 const app = express();
 
 // creating a static file to find an image
@@ -13,6 +13,6 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// app.use("/api/blog", blogRoutes);
+app.use("/api/navlink", linkRoutes);
 
 module.exports = app;

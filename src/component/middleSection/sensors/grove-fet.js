@@ -3,6 +3,7 @@ import { Card, CardMedia } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { MdContentCopy } from "react-icons/md";
+import { Element } from "react-scroll";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -48,7 +49,9 @@ void loop() {
       The Grove-Fet is a Grove-module that is able to switch loads on or off.
       The switching is done by a N-channel MOSFET. The module grants the ability
       to switch a high current with a logic level signal (3.3V to 5V ).
-      <h1>Characteristics</h1>
+      <Element name="item-1">
+        <h1>Characteristics</h1>
+      </Element>
       <p>Max power supply voltage = 30V</p>
       <p>Max current = 10A</p>
       <Card className={classes.root}>
@@ -58,7 +61,9 @@ void loop() {
           title="Paella dish"
         />
       </Card>
-      <h1>How can I use the Grove-Fet?</h1>
+      <Element name="item-2">
+        <h1>How can I use the Grove-Fet?</h1>
+      </Element>
       <p>
         In this example the Grove-Fet is used with a Sodaq Autonomo. The
         Autonomo is an Arduino compatible development board. The module is being
@@ -73,7 +78,9 @@ void loop() {
           title="Paella dish"
         />
       </Card>
-      <h2>Autonomo example</h2>
+      <Element name="item-3">
+        <h2>Autonomo example</h2>
+      </Element>
       <div className="code-snippet">
         <div className="code-section">
           <pre>{codeSnippet}</pre>

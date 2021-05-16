@@ -5,6 +5,7 @@ import { Route, Switch } from "react-router-dom";
 import NestedList1 from "../helpers/nestedList1";
 import NestedList2 from "../helpers/nestedList2";
 import Start from "./middleSection/start";
+import GettingStarted from "./middleSection/gettingStarted"
 import AllSensors from "./middleSection/sensors/allSensors";
 import GroveFet from "./middleSection/sensors/grove-fet";
 import Tph from "./middleSection/sensors/tph";
@@ -19,6 +20,9 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
   },
   toolbar: theme.mixins.toolbar,
+  middleSection:{
+    padding: theme.spacing(8),
+  }
 }));
 
 const MiddleSection = () => {
@@ -31,12 +35,15 @@ const MiddleSection = () => {
         <Grid item xs={12} sm={3} md={2} lg={2}>
           <NestedList1 />
         </Grid>
-        <Grid item xs={12} sm={6} md={8} lg={8}>
+        <Grid item xs={12} sm={6} md={8} lg={8} className={classes.middleSection}>
           <Grid container>
             <Grid item xs>
               <Switch>
                 <Route exact path="/">
                   <Start />
+                </Route>
+                <Route path="/getting_started">
+                  <GettingStarted />
                 </Route>
                 <Route exact path="/Sensors">
                   <AllSensors />
@@ -60,11 +67,11 @@ const MiddleSection = () => {
             </Grid>
           </Grid>
         </Grid>
-          <Grid item xs={12} sm={3} md={2} lg={2}>
+        <Grid item xs={12} sm={3} md={2} lg={2}>
           <NotFoundHide>
-              <NestedList2 />
+            <NestedList2 />
           </NotFoundHide>
-          </Grid>
+        </Grid>
       </Grid>
     </div>
   );

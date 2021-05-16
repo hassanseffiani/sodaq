@@ -5,6 +5,7 @@ import {
   IconButton,
   Collapse,
   Link as ALink,
+  Grid,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
@@ -21,21 +22,35 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     flexDirection: "column",
-    minHeight: "50vh",
+    minHeight: "10vh",
   },
   footer: {
-    padding: theme.spacing(3, 2),
+    padding: theme.spacing(1.5),
     marginTop: "auto",
     backgroundColor:
       theme.palette.type === "light"
         ? theme.palette.grey[900]
         : theme.palette.grey[200],
   },
+  paper: {
+    padding: theme.spacing(2.5),
+    marginTop: "auto",
+    backgroundColor:
+      theme.palette.type === "light"
+        ? theme.palette.grey[800]
+        : theme.palette.grey[200],
+  },
   copyright: {
+    fontSize: "100%",
+    width: "15vw",
     color: "#A0A0A0",
   },
   menuButton: {
+    blockSize: "3vw",
     color: "#A0A0A0",
+  },
+  title: {
+    color: "##fffafa",
   },
 }));
 
@@ -53,11 +68,21 @@ const StickyFooter = () => {
       case "/":
         setFirst(false);
         setNext("Getting Started");
+        setLink2("/getting_started");
+        break;
+      case "/getting_started":
+        setFirst(true);
+        setPrevious("Start");
+        setNext("Select your board!");
+        setLink1("/");
+        setLink2("/Boards");
         break;
       case "/Boards":
         setFirst(true);
         setPrevious("Getting Started");
         setNext("Overview");
+        setLink1("/getting_started");
+        setLink2("/");
         break;
       case "/Sensors":
         setFirst(true);
@@ -95,94 +120,115 @@ const StickyFooter = () => {
   return (
     <div className={classes.root}>
       <NotFoundHide>
-        <Paper variant="outlined">
-          <Collapse in={First}>
-            <Link to="/Sensors/tph">
+        <Paper variant="outlined" className={classes.paper} square>
+          <Grid container spacing={5}>
+            <Grid item xs={4}>
+              <Collapse in={First}>
+                <Link to={Link1}>
+                  <IconButton
+                    edge="start"
+                    className={classes.menuButton}
+                    color="inherit"
+                    style={{paddingLeft: "5vw" }}
+                    aria-label="open drawer"
+                  >
+                    <ArrowBackIcon />
+                    <Typography
+                      variant="caption"
+                      gutterBottom
+                      style={{ textAlign: "left" }}
+                    >
+                      Previous
+                      <Grid item>
+                        <Typography
+                          className={classes.title}
+                          variant="subtitle2"
+                          gutterBottom
+                        >
+                          {Previous}
+                        </Typography>
+                      </Grid>
+                    </Typography>
+                  </IconButton>
+                </Link>
+              </Collapse>
+            </Grid>
+            <Grid item xs={4}></Grid>
+            <Grid item xs={4}>
+              <Link to={Link2}>
+                <IconButton
+                  edge="start"
+                  className={classes.menuButton}
+                  color="inherit"
+                  aria-label="open drawer"
+                >
+                  <Typography
+                    variant="caption"
+                    gutterBottom
+                    style={{ textAlign: "right", paddingLeft: "15vw" }}
+                  >
+                    Next
+                    <Grid item>
+                      <Typography
+                        className={classes.title}
+                        variant="subtitle2"
+                        gutterBottom
+                      >
+                        {Next}
+                      </Typography>
+                    </Grid>
+                  </Typography>
+                  <ArrowForwardIcon />
+                </IconButton>
+              </Link>
+            </Grid>
+          </Grid>
+        </Paper>
+      </NotFoundHide>
+      <footer className={classes.footer}>
+        <Container maxWidth="lg">
+          <Grid container spacing={3}>
+            <Grid item xs={4}>
+              <Typography variant="body2" className={classes.copyright}>
+                {"Copyright © "}
+                {`2019-${new Date().getFullYear()} `}
+                <ALink color="inherit" href="https://support.sodaq.com/">
+                  SODAQ
+                </ALink>{" "}
+              </Typography>
+            </Grid>
+            <Grid item xs={6}></Grid>
+            <Grid item xs={2}>
               <IconButton
                 edge="start"
                 className={classes.menuButton}
                 color="inherit"
                 aria-label="open drawer"
+                onClick={() => window.open("https://github.com/SodaqMoja")}
               >
-                <ArrowBackIcon />
-                <Typography
-                  className={classes.title}
-                  variant="caption"
-                  gutterBottom
-                >
-                  Previous
-                </Typography>
-                <Typography
-                  className={classes.title}
-                  variant="caption"
-                  gutterBottom
-                >
-                  {Previous}
-                </Typography>
+                <FiGithub />
               </IconButton>
-            </Link>
-          </Collapse>
-          <Link to={Link2}>
-            <IconButton
-              edge="start"
-              className={classes.menuButton}
-              color="inherit"
-              aria-label="open drawer"
-            >
-              <Typography
-                className={classes.title}
-                variant="caption"
-                gutterBottom
+              <IconButton
+                edge="start"
+                className={classes.menuButton}
+                aria-label="open drawer"
+                onClick={() => window.open("https://twitter.com/sodaqboards")}
               >
-                {Next}
-              </Typography>
-              <Typography
-                className={classes.title}
-                variant="caption"
-                gutterBottom
+                <FiTwitter />
+              </IconButton>
+              <IconButton
+                edge="start"
+                className={classes.menuButton}
+                color="inherit"
+                aria-label="open drawer"
+                onClick={() =>
+                  window.open("https://linkedin.com/company/sodaq")
+                }
               >
-                Next
-              </Typography>
-              <ArrowForwardIcon />
-            </IconButton>
-          </Link>
-        </Paper>
-      </NotFoundHide>
-      <footer className={classes.footer}>
-        <Container maxWidth="sm">
-          <Typography variant="body2" className={classes.copyright}>
-            {"Copyright © "}
-            {`2019-${new Date().getFullYear()} `}
-            <ALink color="inherit" href="https://support.sodaq.com/">
-              SODAQ
-            </ALink>{" "}
-          </Typography>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="open drawer"
-            onClick={() => window.open("https://github.com/SodaqMoja")}
-          >
-            <FiGithub />
-          </IconButton>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            aria-label="open drawer"
-            onClick={() => window.open("https://twitter.com/sodaqboards")}
-          >
-            <FiTwitter />
-          </IconButton>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="open drawer"
-            onClick={() => window.open("https://linkedin.com/company/sodaq")}
-          >
-            <FiLinkedin />
-          </IconButton>
+                <FiLinkedin />
+              </IconButton>
+            </Grid>
+          </Grid>
         </Container>
       </footer>
     </div>

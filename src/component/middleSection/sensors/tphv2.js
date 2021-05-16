@@ -3,6 +3,7 @@ import { Card, CardMedia } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { MdContentCopy } from "react-icons/md";
+import { Element } from "react-scroll";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -68,7 +69,9 @@ void loop() {
     <div>
       <h1>Temperature Pressure Humidity v2</h1>
       <p>A temperature, pressure and humidity sensor based on the BME280.</p>
-      <h3>Library</h3>
+      <Element name="item-1">
+        <h3>Library</h3>
+      </Element>
       <p>Go to the library manager and install the required libraries.</p>
       <ol>
         <li>Adafruit_Sensor</li>
@@ -95,7 +98,9 @@ void loop() {
           title="tphv2_lib2"
         />
       </Card>
-      <h2>Autonomo Example</h2>
+      <Element name="item-2">
+        <h2>Autonomo Example</h2>
+      </Element>
       <p>Use the I2C connector, marked as SDA/SCL.</p>
       <Card className={classes.root}>
         <CardMedia
@@ -112,7 +117,9 @@ void loop() {
           </CopyToClipboard>
         </div>
       </div>
-      <h2>Schematic</h2>
+      <Element name="item-3">
+        <h2>Schematic</h2>
+      </Element>
       <Card className={classes.root}>
         <CardMedia
           className={classes.media}
