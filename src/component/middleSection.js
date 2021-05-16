@@ -20,14 +20,13 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
   },
   toolbar: theme.mixins.toolbar,
-  middleSection:{
-    padding: theme.spacing(8),
-  }
 }));
 
 const MiddleSection = () => {
   const classes = useStyles();
-
+  // center the middle section
+  // css for the table of content
+  // global css for the items dial l middle section to be fast
   return (
     <div className={classes.root}>
       <div className={classes.toolbar} />
@@ -35,7 +34,7 @@ const MiddleSection = () => {
         <Grid item xs={12} sm={3} md={2} lg={2}>
           <NestedList1 />
         </Grid>
-        <Grid item xs={12} sm={6} md={8} lg={8} className={classes.middleSection}>
+        <Grid item xs={12} sm={6} md={8} lg={8}>
           <Grid container>
             <Grid item xs>
               <Switch>
