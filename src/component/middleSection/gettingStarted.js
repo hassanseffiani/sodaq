@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Card, CardMedia, Link, Typography } from "@material-ui/core";
+import { CardMedia, Link, Typography } from "@material-ui/core";
 import { Element } from "react-scroll";
 import CopyToClipboard from "react-copy-to-clipboard";
 import { MdContentCopy } from "react-icons/md";

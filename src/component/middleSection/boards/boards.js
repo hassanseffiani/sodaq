@@ -1,6 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { CardMedia, Card, Typography, Grid } from "@material-ui/core";
+import { CardMedia, Typography, Grid } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import { Element } from "react-scroll";
 
@@ -30,156 +30,201 @@ const Boards = (props) => {
         </Typography>
       </Element>
       <Grid container>
-        <Grid item xs={6}></Grid>
+        <Grid item xs={6}>
+          <Link to="/Sensors/tph">
+            <CardMedia
+              className={classes.media}
+              image="http://localhost:8080/boards/AFF N211.jpg"
+              title="AFF N211"
+            />
+          </Link>
+        </Grid>
+        <Grid item xs={6}>
+          <Link to="/Sensors/tph">
+            <CardMedia
+              className={classes.media}
+              image="http://localhost:8080/boards/SFF N211.jpg"
+              title="SFF N211"
+            />
+          </Link>
+        </Grid>
+        <Grid item xs={6}>
+          <Link to="/Sensors/tph">
+            <CardMedia
+              className={classes.media}
+              image="http://localhost:8080/boards/AFF R410.jpg"
+              title="AFF R410"
+            />
+          </Link>
+        </Grid>
+        <Grid item xs={6}>
+          <Link to="/Sensors/tph">
+            <CardMedia
+              className={classes.media}
+              image="http://localhost:8080/boards/SFF R410.jpg"
+              title="SFF R410"
+            />
+          </Link>
+        </Grid>
+        <Grid item xs={6}>
+          <Link to="/Sensors/tph">
+            <CardMedia
+              className={classes.media}
+              image="http://localhost:8080/boards/AFF R412.jpg"
+              title="AFF R412"
+            />
+          </Link>
+        </Grid>
+        <Grid item xs={6}>
+          <Link to="/Sensors/tph">
+            <CardMedia
+              className={classes.media}
+              image="http://localhost:8080/boards/SFF R412.jpg"
+              title="SFF R412"
+            />
+          </Link>
+        </Grid>
       </Grid>
-      <Card className={classes.root}>
-        <Link to="/Sensors/tph">
-          <CardMedia
-            className={classes.media}
-            image="http://localhost:8080/boards/AFF N211.jpg"
-            title="AFF N211"
-          />
-        </Link>
-        <Link to="/Sensors/tph">
-          <CardMedia
-            className={classes.media}
-            image="http://localhost:8080/boards/SFF N211.jpg"
-            title="SFF N211"
-          />
-        </Link>
-        <Link to="/Sensors/tph">
-          <CardMedia
-            className={classes.media}
-            image="http://localhost:8080/boards/AFF R410.jpg"
-            title="AFF R410"
-          />
-        </Link>
-        <Link to="/Sensors/tph">
-          <CardMedia
-            className={classes.media}
-            image="http://localhost:8080/boards/SFF R410.jpg"
-            title="SFF R410"
-          />
-        </Link>
-        <Link to="/Sensors/tph">
-          <CardMedia
-            className={classes.media}
-            image="http://localhost:8080/boards/AFF R412.jpg"
-            title="AFF R412"
-          />
-        </Link>
-        <Link to="/Sensors/tph">
-          <CardMedia
-            className={classes.media}
-            image="http://localhost:8080/boards/SFF R412.jpg"
-            title="SFF R412"
-          />
-        </Link>
-      </Card>
+
       <Element name="item-2">
-        <h2>LTE-M</h2>
+        <Typography className="titleVeryDark" variant="h5" gutterBottom>
+          LTE-M
+        </Typography>
       </Element>
-      <Card className={classes.root}>
-        <Link to="/Sensors/tph">
-          <CardMedia
-            className={classes.media}
-            image="http://localhost:8080/boards/AFF R410.jpg"
-            title="AFF R410"
-          />
-        </Link>
-        <Link to="/Sensors/tph">
-          <CardMedia
-            className={classes.media}
-            image="http://localhost:8080/boards/SFF R410.jpg"
-            title="SFF R410"
-          />
-        </Link>
-        <Link to="/Sensors/tph">
-          <CardMedia
-            className={classes.media}
-            image="http://localhost:8080/boards/AFF R412.jpg"
-            title="AFF R412"
-          />
-        </Link>
-        <Link to="/Sensors/tph">
-          <CardMedia
-            className={classes.media}
-            image="http://localhost:8080/boards/SFF R412.jpg"
-            title="SFF R412"
-          />
-        </Link>
-      </Card>
+      <Grid container>
+        <Grid item xs={6}>
+          <Link to="/Sensors/tph">
+            <CardMedia
+              className={classes.media}
+              image="http://localhost:8080/boards/AFF R410.jpg"
+              title="AFF R410"
+            />
+          </Link>
+        </Grid>
+        <Grid item xs={6}>
+          <Link to="/Sensors/tph">
+            <CardMedia
+              className={classes.media}
+              image="http://localhost:8080/boards/SFF R410.jpg"
+              title="SFF R410"
+            />
+          </Link>
+        </Grid>
+        <Grid item xs={6}>
+          <Link to="/Sensors/tph">
+            <CardMedia
+              className={classes.media}
+              image="http://localhost:8080/boards/AFF R412.jpg"
+              title="AFF R412"
+            />
+          </Link>
+        </Grid>
+        <Grid item xs={6}>
+          <Link to="/Sensors/tph">
+            <CardMedia
+              className={classes.media}
+              image="http://localhost:8080/boards/SFF R412.jpg"
+              title="SFF R412"
+            />
+          </Link>
+        </Grid>
+      </Grid>
+
       <Element name="item-3">
-        <h2>LoRa</h2>
+        <Typography className="titleVeryDark" variant="h5" gutterBottom>
+          LoRa
+        </Typography>
       </Element>
-      <Card className={classes.root}>
-        <Link to="/Sensors/tph">
-          <CardMedia
-            className={classes.media}
-            image="http://localhost:8080/boards/Explorer.jpg"
-            title="Explorer"
-          />
-        </Link>
-        <Link to="/Sensors/tph">
-          <CardMedia
-            className={classes.media}
-            image="http://localhost:8080/boards/ONE.jpg"
-            title="ONE"
-          />
-        </Link>
-      </Card>
+      <Grid container>
+        <Grid item xs={6}>
+          <Link to="/Sensors/tph">
+            <CardMedia
+              className={classes.media}
+              image="http://localhost:8080/boards/Explorer.jpg"
+              title="Explorer"
+            />
+          </Link>
+        </Grid>
+        <Grid item xs={6}>
+          <Link to="/Sensors/tph">
+            <CardMedia
+              className={classes.media}
+              image="http://localhost:8080/boards/ONE.jpg"
+              title="ONE"
+            />
+          </Link>
+        </Grid>
+      </Grid>
+
       <Element name="item-4">
-        <h2>2G</h2>
+        <Typography className="titleVeryDark" variant="h5" gutterBottom>
+          2G
+        </Typography>
       </Element>
-      <Card className={classes.root}>
-        <Link to="/Sensors/tph">
-          <CardMedia
-            className={classes.media}
-            image="http://localhost:8080/boards/2G ONE.jpg"
-            title="2G ONE"
-          />
-        </Link>
-        <Link to="/Sensors/tph">
-          <CardMedia
-            className={classes.media}
-            image="http://localhost:8080/boards/AFF R412.jpg"
-            title="AFF R412"
-          />
-        </Link>
-        <Link to="/Sensors/tph">
-          <CardMedia
-            className={classes.media}
-            image="http://localhost:8080/boards/SFF R412.jpg"
-            title="SFF R412"
-          />
-        </Link>
-      </Card>
+      <Grid container>
+        <Grid item xs={6}>
+          <Link to="/Sensors/tph">
+            <CardMedia
+              className={classes.media}
+              image="http://localhost:8080/boards/2G ONE.jpg"
+              title="2G ONE"
+            />
+          </Link>
+        </Grid>
+        <Grid item xs={6}>
+          <Link to="/Sensors/tph">
+            <CardMedia
+              className={classes.media}
+              image="http://localhost:8080/boards/AFF R412.jpg"
+              title="AFF R412"
+            />
+          </Link>
+        </Grid>
+        <Grid item xs={6}>
+          <Link to="/Sensors/tph">
+            <CardMedia
+              className={classes.media}
+              image="http://localhost:8080/boards/SFF R412.jpg"
+              title="SFF R412"
+            />
+          </Link>
+        </Grid>
+      </Grid>
+
       <Element name="item-5">
-        <h2>Other</h2>
+        <Typography className="titleVeryDark" variant="h5" gutterBottom>
+          Other
+        </Typography>
       </Element>
-      <Card className={classes.root}>
-        <Link to="/Sensors/tph">
-          <CardMedia
-            className={classes.media}
-            image="http://localhost:8080/boards/AUTONOMO.jpg"
-            title="AUTONOMO"
-          />
-        </Link>
-        <Link to="/Sensors/tph">
-          <CardMedia
-            className={classes.media}
-            image="http://localhost:8080/boards/MBILI.jpg"
-            title="MBILI"
-          />
-        </Link>
-        <Link to="/Sensors/tph">
-          <CardMedia
-            className={classes.media}
-            image="http://localhost:8080/boards/MOJA.jpg"
-            title="MOJA"
-          />
-        </Link>
-      </Card>
+      <Grid container>
+        <Grid item xs={6}>
+          <Link to="/Sensors/tph">
+            <CardMedia
+              className={classes.media}
+              image="http://localhost:8080/boards/AUTONOMO.jpg"
+              title="AUTONOMO"
+            />
+          </Link>
+        </Grid>
+        <Grid item xs={6}>
+          <Link to="/Sensors/tph">
+            <CardMedia
+              className={classes.media}
+              image="http://localhost:8080/boards/MBILI.jpg"
+              title="MBILI"
+            />
+          </Link>
+        </Grid>
+        <Grid item xs={6}>
+          <Link to="/Sensors/tph">
+            <CardMedia
+              className={classes.media}
+              image="http://localhost:8080/boards/MOJA.jpg"
+              title="MOJA"
+            />
+          </Link>
+        </Grid>
+      </Grid>
     </div>
   );
 };

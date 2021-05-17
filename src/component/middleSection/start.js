@@ -1,6 +1,7 @@
 import { Typography } from "@material-ui/core";
 import React from "react";
 import { Element } from "react-scroll";
+import Boards from "./boards/boards";
 import AllSensors from "./sensors/allSensors";
 
 const Start = () => {
@@ -14,6 +15,7 @@ const Start = () => {
           Boards
         </Typography>
       </Element>
+      <Boards hide={true}/>
       <Element name="item-10">
         <Typography className="titleVeryDark" variant="h5" gutterBottom>
           Sensors
