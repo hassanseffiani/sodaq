@@ -1,11 +1,11 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Grid } from "@material-ui/core";
+import { Container, Grid } from "@material-ui/core";
 import { Route, Switch } from "react-router-dom";
 import NestedList1 from "../helpers/nestedList1";
 import NestedList2 from "../helpers/nestedList2";
 import Start from "./middleSection/start";
-import GettingStarted from "./middleSection/gettingStarted"
+import GettingStarted from "./middleSection/gettingStarted";
 import AllSensors from "./middleSection/sensors/allSensors";
 import GroveFet from "./middleSection/sensors/grove-fet";
 import Tph from "./middleSection/sensors/tph";
@@ -20,6 +20,9 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
   },
   toolbar: theme.mixins.toolbar,
+  middleSection: {
+    paddingTop: "8vh"
+  }
 }));
 
 const MiddleSection = () => {
@@ -34,39 +37,46 @@ const MiddleSection = () => {
         <Grid item xs={12} sm={3} md={2} lg={2}>
           <NestedList1 />
         </Grid>
-        <Grid item xs={12} sm={6} md={8} lg={8}>
-          <Grid container>
-            <Grid item xs>
-              <Switch>
-                <Route exact path="/">
-                  <Start />
-                </Route>
-                <Route path="/getting_started">
-                  <GettingStarted />
-                </Route>
-                <Route exact path="/Sensors">
-                  <AllSensors />
-                </Route>
-                <Route path="/Sensors/grove-fet">
-                  <GroveFet />
-                </Route>
-                <Route path="/Sensors/tph">
-                  <Tph />
-                </Route>
-                <Route path="/Sensors/tph_v2">
-                  <Tphv2 />
-                </Route>
-                <Route exact path="/Boards">
-                  <Boards />
-                </Route>
-                <Route path="*">
-                  <NotFound />
-                </Route>
-              </Switch>
-            </Grid>
-          </Grid>
+        <Grid
+          container
+          item
+          xs={12}
+          sm={5}
+          md={7}
+          lg={7}
+          alignItems="center"
+          direction="row"
+        >
+          <Container maxWidth="lg" fixed className={classes.middleSection}>
+            <Switch>
+              <Route exact path="/">
+                <Start />
+              </Route>
+              <Route path="/getting_started">
+                <GettingStarted />
+              </Route>
+              <Route exact path="/Sensors">
+                <AllSensors />
+              </Route>
+              <Route path="/Sensors/grove-fet">
+                <GroveFet />
+              </Route>
+              <Route path="/Sensors/tph">
+                <Tph />
+              </Route>
+              <Route path="/Sensors/tph_v2">
+                <Tphv2 />
+              </Route>
+              <Route exact path="/Boards">
+                <Boards />
+              </Route>
+              <Route path="*">
+                <NotFound />
+              </Route>
+            </Switch>
+          </Container>
         </Grid>
-        <Grid item xs={12} sm={3} md={2} lg={2}>
+        <Grid item xs={12} sm={4} md={3} lg={3}>
           <NotFoundHide>
             <NestedList2 />
           </NotFoundHide>

@@ -4,15 +4,33 @@ import { Link } from "react-scroll";
 
 import Axios from "axios";
 import { useLocation } from "react-router";
+import { FixedSizeList } from "react-window";
+import {
+  Box,
+  List,
+  ListItem,
+  ListItemText,
+  Typography,
+} from "@material-ui/core";
+import { green } from "@material-ui/core/colors";
 
 const useStyles = makeStyles((theme) => ({
-  nav: {
-    paddingTop: theme.spacing(10),
+  list1: {
+    paddingTop: theme.spacing(8),
+    position: "sticky",
+    top: "1rem",
+  },
+  activeClass: {
+    color: green[500],
+  },
+  listCss: {
+    // fontSize: "0.7em", //Insert your required size
+    // paddingRight: theme.spacing(8),
   },
 }));
 
 const NestedList1 = () => {
-  // const classes = useStyles();
+  const classes = useStyles();
   const location = useLocation();
   const [Array1, setArray] = useState([]);
 
@@ -48,28 +66,49 @@ const NestedList1 = () => {
       })
       .catch((error) => {});
   }, [location]);
+  const Row = (props) => {
+    return (
+      <Fragment>
+        
+        <List className={classes.listCss}>
+          {Array1.map((element, iKey) => {
+            return (
+              <Fragment key={iKey}>
+                <Link
+                  activeClass={classes.activeClass}
+                  to={element.target}
+                  spy={true}
+                  smooth={true}
+                >
+                  <ListItem button style={{ height: "5vh" }}>
+                    <ListItemText
+                      disableTypography
+                      primary={
+                        <Typography variant="overline">
+                          {element.label}
+                        </Typography>
+                      }
+                    />
+                  </ListItem>
+                </Link>
+              </Fragment>
+            );
+          })}
+        </List>
+      </Fragment>
+    );
+  };
   if (!Array1.length) return null;
 
   return (
-    <nav>
-      <h1>Table of contents</h1>
-      {Array1.map((element, iKey) => {
-        return (
-          <Fragment key={iKey}>
-            <Link
-              activeClass="active"
-              to={element.target}
-              spy={true}
-              smooth={true}
-              duration={250}
-              style={{ display: "inline-block", margin: "20px" }}
-            >
-              {element.label}
-            </Link>
-          </Fragment>
-        );
-      })}
-    </nav>
+    <Box className={classes.list1}>
+      <Typography variant="subtitle1" gutterBottom>
+        Table of contents
+      </Typography>
+      <FixedSizeList height={400} width={300} itemSize={1} itemCount={1}>
+        {Row}
+      </FixedSizeList>
+    </Box>
   );
 };
 

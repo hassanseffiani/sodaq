@@ -4,8 +4,16 @@
 
 .code-snippet {
   width: 300px;
-  background: #F5F5F5;
+  background: #f5f5f5;
   padding: 0.1rem;
+}
+
+.code-snippet1 {
+  width: 50vw;
+  background: #f5f5f5;
+  padding: 0.1rem;
+  padding-left: 0.4rem;
+  color: grey;
 }
 
 .code-section {
@@ -24,3 +32,13 @@
   bottom: 0;
   font-size: 120%;
 }
+
+.titleGrey {
+  color: grey;
+  padding-bottom: 5vh;
+}
+
+.titleVeryDark {
+  color: DimGray;
+}
+

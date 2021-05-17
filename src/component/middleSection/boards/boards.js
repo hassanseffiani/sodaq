@@ -1,6 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { CardMedia, Card } from "@material-ui/core";
+import { CardMedia, Card, Typography, Grid } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import { Element } from "react-scroll";
 
@@ -19,10 +19,19 @@ const Boards = (props) => {
 
   return (
     <div>
-      {props.hide !== true && <h1>Select your board!</h1>}
+      {props.hide !== true && (
+        <Typography className="titleGrey" variant="h4" gutterBottom>
+          Select your board!
+        </Typography>
+      )}
       <Element name="item-1">
-        <h2>NB-IoT</h2>
+        <Typography className="titleVeryDark" variant="h5" gutterBottom>
+          NB-IoT
+        </Typography>
       </Element>
+      <Grid container>
+        <Grid item xs={6}></Grid>
+      </Grid>
       <Card className={classes.root}>
         <Link to="/Sensors/tph">
           <CardMedia
@@ -146,7 +155,7 @@ const Boards = (props) => {
         </Link>
       </Card>
       <Element name="item-5">
-      <h2>Other</h2>
+        <h2>Other</h2>
       </Element>
       <Card className={classes.root}>
         <Link to="/Sensors/tph">

@@ -46,11 +46,18 @@ const useStyles = makeStyles((theme) => ({
     color: "#A0A0A0",
   },
   menuButton: {
-    blockSize: "3vw",
+    blockSize: "4vw",
     color: "#A0A0A0",
   },
   title: {
-    color: "##fffafa",
+    color: "#fffafa",
+    paddingLeft: theme.spacing(2),
+    textDecoration: "none",
+  },
+  title1: {
+    color: "#fffafa",
+    paddingRight: theme.spacing(2),
+    textDecoration: "none",
   },
 }));
 
@@ -122,27 +129,21 @@ const StickyFooter = () => {
       <NotFoundHide>
         <Paper variant="outlined" className={classes.paper} square>
           <Grid container spacing={5}>
-            <Grid item xs={4}>
+            <Grid item xs={4} style={{ textAlign: "left", paddingLeft: "5vw" }}>
               <Collapse in={First}>
-                <Link to={Link1}>
+                <Link to={Link1} style={{ textDecoration: "none" }}>
                   <IconButton
-                    edge="start"
                     className={classes.menuButton}
                     color="inherit"
-                    style={{paddingLeft: "5vw" }}
                     aria-label="open drawer"
                   >
                     <ArrowBackIcon />
-                    <Typography
-                      variant="caption"
-                      gutterBottom
-                      style={{ textAlign: "left" }}
-                    >
+                    <Typography variant="caption" gutterBottom>
                       Previous
                       <Grid item>
                         <Typography
                           className={classes.title}
-                          variant="subtitle2"
+                          variant="h6"
                           gutterBottom
                         >
                           {Previous}
@@ -154,24 +155,23 @@ const StickyFooter = () => {
               </Collapse>
             </Grid>
             <Grid item xs={4}></Grid>
-            <Grid item xs={4}>
-              <Link to={Link2}>
+            <Grid
+              item
+              xs={4}
+              style={{ textAlign: "right", paddingRight: "5vw" }}
+            >
+              <Link to={Link2} style={{ textDecoration: "none" }}>
                 <IconButton
-                  edge="start"
                   className={classes.menuButton}
                   color="inherit"
                   aria-label="open drawer"
                 >
-                  <Typography
-                    variant="caption"
-                    gutterBottom
-                    style={{ textAlign: "right", paddingLeft: "15vw" }}
-                  >
+                  <Typography variant="caption" gutterBottom>
                     Next
                     <Grid item>
                       <Typography
-                        className={classes.title}
-                        variant="subtitle2"
+                        className={classes.title1}
+                        variant="h6"
                         gutterBottom
                       >
                         {Next}

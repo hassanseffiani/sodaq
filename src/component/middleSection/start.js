@@ -1,3 +1,4 @@
+import { Typography } from "@material-ui/core";
 import React from "react";
 import { Element } from "react-scroll";
 import AllSensors from "./sensors/allSensors";
@@ -5,13 +6,18 @@ import AllSensors from "./sensors/allSensors";
 const Start = () => {
   return (
     <div>
-      <h1>How can we help you?</h1>
+      <Typography className="titleGrey" variant="h4" gutterBottom>
+        How can we help you?
+      </Typography>
       <Element name="item-1">
-        <h3>Boards</h3>
+        <Typography className="titleVeryDark" variant="h5" gutterBottom>
+          Boards
+        </Typography>
       </Element>
-
       <Element name="item-10">
-        <h3>Sensors</h3>
+        <Typography className="titleVeryDark" variant="h5" gutterBottom>
+          Sensors
+        </Typography>
       </Element>
       <AllSensors hide={true} />
     </div>
